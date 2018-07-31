@@ -1,0 +1,129 @@
+@import "../../../styles/tools/-tools";
+@import "../../../styles/tokens/-tokens";
+
+.field {
+  position: relative;
+
+  &,
+  &__title,
+  &__input {
+    @extend %cursor--action;
+  }
+
+  &__title {
+    @extend %heading--medium;
+
+    @include position(vertical, (left: space(small)));
+    @include transition(all);
+
+    color: palette(text, 02);
+    user-select: none;
+  }
+
+  &__input {
+    @extend %content;
+
+    padding: space(base, small, tiny);
+    width: 100%;
+    color: palette(text, 01);
+    background-color: palette(field, 01);
+    border: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__info {
+    @extend %body;
+
+    @include position((left: space(base), bottom: 0));
+    @include transition((bottom, opacity));
+
+    color: palette(text, 02);
+    opacity: 0;
+    z-index: -1;
+
+    &--show {
+      bottom: rem(-16px);
+      opacity: 1;
+    }
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__status {
+    @include position(horizontal, (bottom: 0));
+
+    width: 100%;
+    height: 2px;
+    background-color: palette(field, 01);
+
+    &:after {
+      @include position(horizontal, (bottom: 0));
+      @include transition(all);
+
+      content: "";
+      width: 0;
+      height: 0;
+    }
+  }
+
+  &--move-label-up {
+    .field__title {
+      @include font-size(xsmall);
+      @include line-height(xsmall);
+
+      top: space(tiny);
+      transform: translateY(0);
+    }
+
+    .field__arrow {
+      top: 60%;
+    }
+  }
+
+  &--error,
+  &--is-focused {
+    .field__status {
+      &:after {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &--has-value,
+  &--is-focused {
+    .field__input {
+      @extend %cursor--text;
+    }
+  }
+
+  &--error {
+    .field__title,
+    .field__info {
+      color: palette(text, 04);
+    }
+
+    .field__status {
+      &:after {
+        background-color: palette(support, 01);
+      }
+    }
+  }
+
+  &--is-focused {
+    .field__title {
+      color: palette(text, 03);
+    }
+
+    .field__status {
+      &:after {
+        background-color: palette(field, 02);
+      }
+    }
+  }
+}

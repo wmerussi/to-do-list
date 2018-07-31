@@ -1,0 +1,22 @@
+<div class="field field--text" [ngClass]="getClasses()">
+  <div class="field__container" [formGroup]="formGroup">
+    <label class="field__title" for="{{ fieldId }}">{{ title }}</label>
+
+    <input
+      class="field__input"
+      id="{{ fieldId }}"
+      #inputField
+      formControlName="{{ controlName }}"
+      (blur)="onBlur()"
+      (change)="onChange($event)"
+      (focus)="onFocus()"
+      type="{{ type }}"
+      placeholder="{{ placeholder }}"
+    >
+  </div>
+
+  <div class="field__status"></div>
+
+  <span class="field__info" [class.field__info--show]="showRequired()">* Campo obrigatório</span>
+  <ng-content></ng-content>
+</div>

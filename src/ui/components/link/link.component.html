@@ -1,0 +1,16 @@
+<a
+  class="link"
+  #anchor
+  [ngClass]="getLinkClasses()"
+>
+  <span
+    class="link__icon"
+    *ngIf="!!iconName"
+    [ngClass]="getIconClasses()"
+    [hidden]="hideIcon"
+  ></span>
+
+  <ng-content></ng-content>
+
+  <span class="link__arrow" *ngIf="isArrow()"></span>
+</a>

@@ -1,0 +1,14 @@
+<button
+  class="button"
+  [ngClass]="getButtonClasses()"
+  type="button"
+>
+  <span
+    class="button__icon"
+    *ngIf="!!iconName"
+    [ngClass]="getIconClasses()"
+    [hidden]="hideIcon"
+  ></span>
+
+  <ng-content></ng-content>
+</button>

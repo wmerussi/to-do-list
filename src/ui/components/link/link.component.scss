@@ -1,0 +1,50 @@
+@import "../../styles/colors/palettes";
+@import "../../styles/tokens/-tokens";
+@import "../button/button.component";
+
+.link {
+  display: inline-flex;
+
+  &:not(&--button) {
+    @extend %cursor--action;
+
+    &,
+    &:active,
+    &:visited {
+      color: palette(text, 07);
+    }
+  }
+
+  &__arrow {
+    //@extend .icon;
+    //@extend .icon--angle-right;
+    //@extend .icon--small;
+
+    margin-left: space(base);
+  }
+
+  &__icon {
+    //@extend .icon;
+
+    margin-right: space(small);
+  }
+
+  &--arrow,
+  &--small {
+    //@extend %caption;
+  }
+
+  &--base {
+    @extend %paragraph;
+
+    text-decoration: underline;
+  }
+
+  &--strong {
+    @extend %font--bold;
+  }
+
+  &--button {
+    @extend .button;
+  }
+}

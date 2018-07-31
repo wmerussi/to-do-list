@@ -1,0 +1,146 @@
+@import "../../styles/tools/mixins/media";
+@import "../../styles/tokens/-tokens";
+
+/// Mixin to create the button based on type
+/// @require {function} palette </tools/functions/_palette.scss>
+/// @param   {string} $type     [primary] - The button type
+/// @param   {string} $modifier [none]    - Inform the modifier
+/// @output  Attributes for the button
+///
+@mixin button($type: primary, $modifier: none) {
+  $color: null;
+  $background-color: palette(ui, 01);
+  $border-color: palette(ui, 01);
+
+  @if $type == text {
+    $color: palette(text, 03);
+
+    @if $modifier == disabled {
+      $color: palette(text, 02);
+    }
+  }
+
+  @if $type == outlined {
+    $color: palette(text, 03);
+    $background-color: palette(ui, 01);
+    $border-color: palette(ui, 03);
+
+    @if $modifier == disabled {
+      $color: palette(text, 06);
+      $border-color: palette(ui, 02);
+    }
+  }
+
+  @if $type == contained {
+    $color: palette(text, 05);
+    $background-color: palette(brand, 01);
+    $border-color: palette(brand, 01);
+
+    @if $modifier == disabled {
+      $color: palette(text, 06);
+      $background-color: palette(ui, 03);
+      $border-color: palette(ui, 03);
+    }
+  }
+
+  color: $color;
+  background-color: $background-color;
+  border: 1px solid $border-color;
+}
+
+$button-type-config: (
+  text:      (disabled),
+  outlined:  (disabled),
+  contained: (disabled),
+);
+
+$button-size-config: (
+  base:   (small),
+);
+
+$button-border-radius-config: (
+  default: base,
+  pill:    round,
+);
+
+$social-buttons: (
+  facebook,
+  gmail,
+);
+
+/// Button token
+///
+.button {
+  @extend %paragraph--strong;
+
+  &:not(&--link) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 64px;
+    text-transform: uppercase;
+  }
+
+  &__content,
+  &__icon {
+    flex: 1 0 auto;
+  }
+
+  &__icon {
+    //@extend .icon;
+    //width: 18px; material design icon size
+    //height: 18px; material design icon size
+
+    margin-right: space(small);
+  }
+
+  &--block {
+    width: 100%;
+  }
+
+  /// Create the button type tokens from $button-type-config map
+  @each $type, $modifiers in $button-type-config {
+    &--#{$type} {
+      @include button($type);
+
+      /// Create all modifiers for all types
+      @each $modifier in $modifiers {
+        &-#{$modifier} {
+          @include button($type, $modifier);
+        }
+      }
+    }
+  }
+
+  /// Create all sizes button token based on $button-size-config map
+  @each $size, $values in $button-size-config {
+    $value-adjustment: ();
+
+    /// Subtract 1px from each padding to adjust height and width due "invisible" border size
+    @each $value in $values {
+      /// space function returns a rem value, so we need to get it in px
+      $subtract: map-get($space, $value) - 1;
+      $value-adjustment: rem(append($value-adjustment, $subtract));
+    }
+
+    &--#{$size} {
+      padding: $value-adjustment;
+    }
+  }
+
+  /// Create all border-radius button token based on $button-border-radius-config map
+  @each $type, $border-radius in $button-border-radius-config {
+    &--#{$type} {
+      @extend %border-radius--#{$border-radius};
+    }
+  }
+
+  /// Create all social color buttons
+  @each $social in $social-buttons {
+    &--#{$social} {
+      background-color: palette(social, $social);
+      border-color: palette(social, $social);
+    }
+  }
+}
