@@ -1,0 +1,31 @@
+/// Cursor token file
+
+/// Cursor values
+///
+$cursor-values: (
+  action:  pointer,
+  default: default,
+  text:    text,
+);
+
+/// Cursor mixin
+///
+/// In some occasions we need to use this mixin because of placeholder positions.
+///
+/// If we extend a "text" after a "cursor" one, it will not work.
+/// This happens because the "cursor" placeholder was created before the "text" one
+///   and will be override by the latter.
+///
+/// This will create another line of code and overrides the previous rule.
+///
+@mixin cursor($type) {
+  cursor: map-get($cursor-values, $type);
+}
+
+/// Creates all cursor tokens
+///
+@each $name, $value in $cursor-values {
+  %cursor--#{$name} {
+    @include cursor($name);
+  }
+}
