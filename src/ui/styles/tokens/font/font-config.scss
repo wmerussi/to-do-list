@@ -1,0 +1,66 @@
+/// Font token
+
+/// Project font configuration
+///
+/// @param {string} base    - Name used as param to use the chosen font
+/// @param {string} type    - Font type
+/// @param {string} name    - Name of the font to import
+/// @param {map}    weights - Weights of the font to import
+///
+$font-families: (
+  oxygen: (
+    type:    sans-serif,
+    name:    Oxygen,
+    weights: "700",
+  ),
+  roboto: (
+    type:    sans-serif,
+    name:    Roboto,
+    weights: "400,500,700",
+  ),
+) !default;
+
+/// Font weights
+/// Used only on file to translate weight number to string
+/// $font-weights might be a reserved Ionic variable and we need to use $base-font-weights instead
+///
+$base-font-weights: (
+  thin: 100,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+) !default;
+
+/// Default fallback fonts to use when the font fail to load
+///
+$fallback: (
+  serif:       ("Times New Roman", Times, serif),
+  sans-serif:  (Arial, Helvetica, sans-serif),
+  handwriting: cursive,
+) !default;
+
+/// It will loop through the $font-families map
+/// and create all font tokens
+///
+/// @output font-family with fallback fonts
+///
+@each $family, $font in $font-families {
+  $font-name: map-get($font, name);
+  $font-type: map-get($font, type);
+  $font-weights: map-get($font, weights);
+
+  %font--#{$family} {
+    font-family: $font-name, map-get($fallback, $font-type);
+  }
+}
+
+/// It will loop through the $font-weights map
+/// and create all font-weight tokens
+///
+/// @output font-weight with it's value
+///
+@each $weight, $value in $base-font-weights {
+  %font--#{$weight} {
+    font-weight: $value;
+  }
+}

@@ -1,0 +1,37 @@
+@import "../../tools/functions/rem";
+
+/// Line Height config
+///
+$line-heights: (
+  base:   12px,
+  medium: 16px,
+  large:  18px,
+  xlarge: 20px,
+  huge:   24px,
+) !default;
+
+/// Line height mixin
+///
+/// In some occasions we need to use this mixin because of placeholder positions.
+///
+/// If we extend a "large" after a "base" one, it will not work.
+/// This happens because the "base" placeholder was created before the "large" one
+///   and will be override by the latter.
+///
+/// This will create another line of code and overrides the previous rule.
+///
+@mixin line-height($size) {
+  line-height: rem(map-get($line-heights, $size));
+}
+
+/// Iterate trough all $line-height values and create the line-height tokens
+///
+/// @require {function} rem <../../tools/rem.scss>
+/// @require {map}      $line-heights
+/// @output  line-height attribute in rem
+///
+@each $name, $height in $line-heights {
+  %line-height--#{$name} {
+    @include line-height($name);
+  }
+}

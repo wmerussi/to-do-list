@@ -1,0 +1,7 @@
+@import "../tokens/font/base-font-size";
+
+/// Used to set font-size to 16px
+///
+html {
+  font-size: $base-font-size;
+}

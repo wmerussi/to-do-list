@@ -1,0 +1,28 @@
+@import "./font-config";
+
+/// Main file to import all font informed on './font-config.scss' file
+///
+/// @require {variable} $font-families <./font-config.scss>
+///
+/// This file must only be imported by 'ui/ui-config.scss' file
+
+/// Google Fonts default URL
+///
+$google-url: "https://fonts.googleapis.com/css?family=";
+
+/// Fonts to import
+///
+$fonts: null;
+
+/// It will loop through the $font-families map
+/// and import from google all needed fonts to be used later
+///
+
+@each $family, $font in $font-families {
+  $name: map-get($font, name);
+  $weights: map-get($font, weights);
+
+  $fonts: "#{$name}:#{$weights}|#{$fonts}";
+}
+
+@import url("#{$google-url}#{$fonts}");

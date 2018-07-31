@@ -1,0 +1,38 @@
+@import "../../tools/functions/rem";
+@import "./base-font-size";
+
+/// Font sizes
+///
+$font-sizes: (
+  base:   $base-font-size,
+  medium: $base-font-size + 2,
+  large:  $base-font-size + 4,
+  xlarge: $base-font-size + 8,
+  huge:   $base-font-size + 12,
+) !default;
+
+/// Font size mixin
+///
+/// In some occasions we need to use this mixin because of placeholder positions.
+///
+/// If we extend a "large" after a "base" one, it will not work.
+/// This happens because the "base" placeholder was created before the "large" one
+///   and will be override by the latter.
+///
+/// This will create another line of code and overrides the previous rule.
+///
+@mixin font-size($size) {
+  font-size: rem(map-get($font-sizes, $size));
+}
+
+/// It will iterate through all sizes in $font-sizes map and create the tokens
+///
+/// @require {function} rem <../../tools/functions/rem.scss>
+/// @require {map}      $font-sizes
+/// @output  font-size attribute in rem
+///
+@each $name, $size in $font-sizes {
+  %font-size--#{$name} {
+    @include font-size($name);
+  }
+}
