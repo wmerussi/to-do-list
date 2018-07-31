@@ -1,0 +1,19 @@
+@import "../font/-font";
+
+/// Default %paragraph configuration
+%paragraph-default {
+  @extend %font--roboto;
+  @extend %font-size--small;
+  @extend %line-height--small;
+}
+
+/// Paragraph typography token
+%paragraph {
+  @extend %paragraph-default;
+  @extend %font--regular;
+
+  &--strong {
+    @extend %paragraph-default;
+    @extend %font--bold;
+  }
+}

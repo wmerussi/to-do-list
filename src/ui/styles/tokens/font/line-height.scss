@@ -3,11 +3,12 @@
 /// Line Height config
 ///
 $line-heights: (
-  base:   12px,
-  medium: 16px,
-  large:  18px,
-  xlarge: 20px,
-  huge:   24px,
+  tiny:   11px,
+  xsmall: 12px,
+  small:  16px,
+  base:   18px,
+  medium: 20px,
+  large:  22px,
 ) !default;
 
 /// Line height mixin

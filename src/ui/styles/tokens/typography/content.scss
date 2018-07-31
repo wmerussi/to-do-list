@@ -1,0 +1,19 @@
+@import "../font/-font";
+
+/// Default %content configuration
+%content-default {
+  @extend %font--roboto;
+  @extend %font-size--medium;
+  @extend %line-height--medium;
+}
+
+/// Content typography token
+%content {
+  @extend %content-default;
+  @extend %font--regular;
+
+  &--strong {
+    @extend %content-default;
+    @extend %font--bold;
+  }
+}

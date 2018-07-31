@@ -1,0 +1,19 @@
+@import "../font/-font";
+
+/// Default %body configuration
+%body-default {
+  @extend %font--roboto;
+  @extend %font-size--base;
+  @extend %line-height--base;
+}
+
+/// Body typography token
+%body {
+  @extend %body-default;
+  @extend %font--regular;
+
+  &--strong {
+    @extend %body-default;
+    @extend %font--bold;
+  }
+}

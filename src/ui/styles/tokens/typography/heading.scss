@@ -1,0 +1,24 @@
+@import "../font/-font";
+
+/// Heading config
+///
+$heading-config: (
+  tiny:   (font-size: tiny,   line-height: tiny),   // %heading--tiny
+  xsmall: (font-size: xsmall, line-height: xsmall), // %heading--xsmall
+  small:  (font-size: small,  line-height: small),  // %heading--small
+  base:   (font-size: base,   line-height: base),   // %heading--base
+  medium: (font-size: medium, line-height: medium), // %heading--medium
+  large:  (font-size: large,  line-height: large),  // %heading--large
+);
+
+/// Generates all tokens with the config above
+@each $heading, $config in $heading-config {
+  %heading--#{$heading} {
+    @extend %font--oxygen;
+    @extend %font--bold;
+
+    @each $attribute, $value in $config {
+      @extend %#{$attribute}--#{$value};
+    }
+  }
+}
