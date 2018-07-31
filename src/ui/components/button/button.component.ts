@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'ui-button',
@@ -16,7 +16,7 @@ import { Component, OnInit } from '@angular/core'
     'type',
   ],
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent {
   /** Inputs */
   public block: boolean
   public border: string
@@ -27,10 +27,6 @@ export class ButtonComponent implements OnInit {
   public iconSize: string = 'small'
   public size: string = 'base'
   public type: string = 'text'
-
-  ngOnInit() {
-    this.block = this.block !== undefined
-  }
 
   protected getButtonClasses(): Object {
     return {
