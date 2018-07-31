@@ -1,0 +1,100 @@
+@import "../tools/functions/map-get-plus";
+@import "../tools/functions/hsla-color";
+
+/// Base colors
+/// Design colors to use throughout the project
+/// It must be only imported on './palettes.scss' file
+
+/// Base colors
+///
+/// Ionic has a default $color variable, so we need to create another variable
+/// or it will try to find the color on the default variable.
+///
+$base-colors: (
+  black: (
+    base:  #444,
+    light: #999,
+    pure : #000,
+  ),
+  blue: (
+    light: #0000EE,
+    base:  #2A6DFF,
+    dark:  #23496B,
+    pale:  #225EAB,
+  ),
+  grey: (
+    base:  #EFEFEF,
+    dark:  #878787,
+    light: #CBCBCB,
+  ),
+  ice:    #CFE4FF,
+  red:    #EB1B2C,
+  brands: (
+    facebook: #3B5998,
+    gmail:    #FF4343,
+  ),
+  white:  #FFFFFF,
+) !default;
+
+/// Get color from $base-color map
+///
+@function color($color...) {
+  @return map-get-plus($base-colors, $color...);
+}
+
+/// Brand colors
+///
+$brand-colors: (
+  01: hsla-color(color(blue, base)),
+) !default;
+
+/// Get color from $brand-colors map
+///
+@function brand-color($color) {
+  @return map-get($brand-colors, $color);
+}
+
+/// Support colors
+///
+$support-colors: (
+  01: hsla-color(color(grey, base)),
+  02: hsla-color(color(black, base)),
+  03: hsla-color(color(black, light)),
+  04: hsla-color(color(black, pure)),
+  05: hsla-color(color(ice)),
+  06: hsla-color(color(white)),
+  07: hsla-color(color(grey, dark)),
+  08: hsla-color(color(grey, light)),
+
+) !default;
+
+/// Get color from $support-colors map
+///
+@function support-color($color) {
+  @return map-get($support-colors, $color);
+}
+
+/// Additional colors
+///
+$additional-colors: (
+  01: hsla-color(color(red)),
+) !default;
+
+/// Get color from $additional-colors map
+///
+@function additional-color($color) {
+  @return map-get($additional-colors, $color);
+}
+
+/// Social colors
+///
+$social-colors: (
+  facebook: hsla-color(color(brands, facebook)),
+  gmail: hsla-color(color(brands, gmail)),
+) !default;
+
+/// Get color from $additional-colors map
+///
+@function social-color($color) {
+  @return map-get($social-colors, $color);
+}

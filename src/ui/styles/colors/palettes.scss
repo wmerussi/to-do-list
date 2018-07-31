@@ -1,0 +1,112 @@
+@import "./colors";
+
+/// Palette colors
+/// UI colors to use throughout the project
+
+/// Brand palette colors
+///
+/// Used on:
+/// - Primary state of button background
+/// - Primary state of checkboxes
+/// - Primary state of radio buttons
+///
+$brand: (
+  01: brand-color(01)
+) !default;
+
+/// UI palette colors
+///
+/// Used on:
+/// - Backgrounds
+/// - Borders
+/// - Icons
+/// - Secondary state of checkboxes
+/// - Secondary state of radio buttons
+/// - Shadows
+///
+$ui: (
+  01: transparent,       // Transparent background color
+  02: support-color(07), // Dark background
+  03: support-color(08), // Darker background
+  04: support-color(04), // Black background
+  05: support-color(06), // Light background
+) !default;
+
+/// Text palette colors
+///
+/// Used on:
+/// - Texts
+/// - Link texts
+/// - Button texts
+///
+$text: (
+  01: support-color(02), // Default text
+  02: support-color(03), // Secondary importance text
+  03: brand-color(01),   // Text highlight
+  04: additional-color(01), // Alert
+  05: support-color(06), // Light text
+  06: support-color(07), // Dark text
+  07: support-color(06), // Links
+) !default;
+
+/// Field palette colors
+///
+/// Used on:
+/// - Input fields background
+/// --- input, select, etc...
+///
+$field: (
+  01: support-color(01), // Neutral background
+  02: brand-color(01),   // Heavy highlight
+  03: support-color(05), // Light highlight
+) !default;
+
+/// Support palette colors
+///
+/// Used on:
+/// - Alerts
+/// - Notifications
+/// - Tags
+/// - Secondary state of button background
+///
+$support: (
+  01: additional-color(01), // Alert
+) !default;
+
+/// Social palette colors
+///
+/// Used on:
+/// - Social colors
+///
+$social: (
+  facebook: social-color(facebook),
+  gmail: social-color(gmail),
+) !default;
+
+/// Palette picker
+///
+@function palette($type, $color) {
+  @if $type == brand {
+    @return map-get($brand, $color);
+  }
+
+  @if $type == ui {
+    @return map-get($ui, $color);
+  }
+
+  @if $type == text {
+    @return map-get($text, $color);
+  }
+
+  @if $type == field {
+    @return map-get($field, $color);
+  }
+
+  @if $type == support {
+    @return map-get($support, $color);
+  }
+
+  @if $type == social {
+    @return map-get($social, $color);
+  }
+}
