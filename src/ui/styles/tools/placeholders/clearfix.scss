@@ -1,0 +1,10 @@
+/// Placeholder hack to use on float elements
+/// This element will not be mixed with further elements
+///
+%clearfix {
+  &:after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
