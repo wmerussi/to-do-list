@@ -1,0 +1,45 @@
+<ui-floating-centered-content>
+  <div class="register__logo">
+    <img src="../../../assets/imgs/logo.svg" alt="" width="200">
+  </div>
+
+  <ui-titled-content title="Criar nova conta">
+    <ul class="register__fields">
+      <li>
+        <ui-text-field
+          title="E-mail"
+          [fieldId]="emailFieldId"
+          (onValueChange)="email = $event"
+        ></ui-text-field>
+      </li>
+
+      <li>
+        <ui-text-field
+          title="Senha"
+          type="password"
+          [fieldId]="passwordFieldId"
+          (onValueChange)="password = $event"
+        ></ui-text-field>
+      </li>
+
+      <li>
+        <ui-button
+          type="contained"
+          [block]="true"
+          (click)="registerNewUser()"
+        >Criar conta</ui-button>
+      </li>
+
+      <li *ngIf="!!message">
+        <ui-message [message]="message"></ui-message>
+      </li>
+    </ul>
+  </ui-titled-content>
+
+  <div class="register__existing-user">
+    <ui-link
+      routerLink="/login"
+      [strong]="true"
+    >Já tem uma conta? Faça o login!</ui-link>
+  </div>
+</ui-floating-centered-content>
