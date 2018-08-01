@@ -30,6 +30,10 @@
             (click)="emailSignIn()"
           >Entrar</ui-button>
         </li>
+
+        <li *ngIf="!!message">
+          <ui-message [message]="message">Mensagem de teste</ui-message>
+        </li>
       </ul>
     </ui-titled-content>
   </dl>
