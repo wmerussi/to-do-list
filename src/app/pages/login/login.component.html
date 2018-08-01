@@ -1,60 +1,58 @@
-<div class="login">
-  <div class="login__content">
-    <div class="login__logo">
-      <img src="../../../assets/imgs/logo.svg" alt="" width="200">
-    </div>
-
-    <dl class="login__type">
-      <ui-titled-content title="Entre com seu e-mail">
-        <ul class="login__fields">
-          <li>
-            <ui-text-field
-              title="E-mail"
-              [fieldId]="emailFieldId"
-              (onValueChange)="email = $event"
-            ></ui-text-field>
-          </li>
-
-          <li>
-            <ui-text-field
-              title="Senha"
-              type="password"
-              [fieldId]="passwordFieldId"
-              (onValueChange)="password = $event"
-            ></ui-text-field>
-          </li>
-
-          <li>
-            <ui-button
-              type="contained"
-              [block]="true"
-              (click)="emailSignIn()"
-            >Entrar</ui-button>
-          </li>
-        </ul>
-      </ui-titled-content>
-    </dl>
-
-    <dl class="login__type">
-      <ui-titled-content title="Ou com uma rede social">
-        <ul class="login__buttons">
-          <li>
-            <ui-button
-              class="button--gmail"
-              type="contained"
-              [block]="true"
-              (click)="socialSignIn('google')"
-            >Google</ui-button>
-          </li>
-        </ul>
-      </ui-titled-content>
-    </dl>
-
-    <div class="login__create">
-      <ui-link
-        routerLink="/register"
-        [strong]="true"
-      >Não tem uma conta? Crie uma agora!</ui-link>
-    </div>
+<ui-floating-centered-content>
+  <div class="login__logo">
+    <img src="../../../assets/imgs/logo.svg" alt="" width="200">
   </div>
-</div>
+
+  <dl class="login__type">
+    <ui-titled-content title="Entre com seu e-mail">
+      <ul class="login__fields">
+        <li>
+          <ui-text-field
+            title="E-mail"
+            [fieldId]="emailFieldId"
+            (onValueChange)="email = $event"
+          ></ui-text-field>
+        </li>
+
+        <li>
+          <ui-text-field
+            title="Senha"
+            type="password"
+            [fieldId]="passwordFieldId"
+            (onValueChange)="password = $event"
+          ></ui-text-field>
+        </li>
+
+        <li>
+          <ui-button
+            type="contained"
+            [block]="true"
+            (click)="emailSignIn()"
+          >Entrar</ui-button>
+        </li>
+      </ul>
+    </ui-titled-content>
+  </dl>
+
+  <dl class="login__type">
+    <ui-titled-content title="Ou com uma rede social">
+      <ul class="login__buttons">
+        <li>
+          <ui-button
+            class="button--gmail"
+            type="contained"
+            [block]="true"
+            (click)="socialSignIn('google')"
+          >Google</ui-button>
+        </li>
+      </ul>
+    </ui-titled-content>
+  </dl>
+
+  <div class="login__create">
+    <ui-link
+      routerLink="/register"
+      [strong]="true"
+    >Não tem uma conta? Crie uma agora!</ui-link>
+  </div>
+</ui-floating-centered-content>

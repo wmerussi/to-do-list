@@ -2,54 +2,6 @@
 @import "../../../ui/styles/tokens/-tokens";
 
 .login {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-
-  &:before,
-  &:after {
-    @include position(both);
-
-    width: 100%;
-    height: 100vh;
-    content: "";
-  }
-
-  &:before {
-    background: url("../../../assets/imgs/bkg-login.jpg") center;
-    background-size: cover;
-
-    z-index: -2;
-  }
-
-  &:after {
-    background-color: palette(ui, 04);
-
-    opacity: .4;
-    z-index: -1;
-  }
-
-  &__content {
-    @include position(both);
-
-    padding: space(base);
-    width: 100%;
-    max-width: 300px;
-    z-index: 1;
-
-    &:before {
-      @extend %border-radius--base;
-      @include position(both);
-
-      width: 100%;
-      height: 100%;
-      background-color: palette(ui, 05);
-      opacity: .5;
-      z-index: -1;
-      content: "";
-    }
-  }
-
   &__logo {
     margin-bottom: space(base);
     position: relative;

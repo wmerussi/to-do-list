@@ -9,9 +9,13 @@ import { LinkComponent } from './components/link/link.component'
 import { TextFieldComponent } from './components/form/text-field/text-field.component'
 import { TitledContentComponent } from './components/titled-content/titled-content.component'
 
+import { FloatingCenteredContentComponent }
+  from './components/floating-centered-content/floating-centered-content'
+
 @NgModule({
   declarations: [
     ButtonComponent,
+    FloatingCenteredContentComponent,
     LinkComponent,
     TextFieldComponent,
     TitledContentComponent,
@@ -23,6 +27,7 @@ import { TitledContentComponent } from './components/titled-content/titled-conte
   ],
   exports: [
     ButtonComponent,
+    FloatingCenteredContentComponent,
     LinkComponent,
     TextFieldComponent,
     TitledContentComponent,
