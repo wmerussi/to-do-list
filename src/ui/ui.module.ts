@@ -7,12 +7,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { ButtonComponent } from './components/button/button.component'
 import { LinkComponent } from './components/link/link.component'
 import { TextFieldComponent } from './components/form/text-field/text-field.component'
+import { TitledContentComponent } from './components/titled-content/titled-content.component'
 
 @NgModule({
   declarations: [
     ButtonComponent,
     LinkComponent,
     TextFieldComponent,
+    TitledContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +25,7 @@ import { TextFieldComponent } from './components/form/text-field/text-field.comp
     ButtonComponent,
     LinkComponent,
     TextFieldComponent,
+    TitledContentComponent,
   ],
 })
 export class UiModule { }

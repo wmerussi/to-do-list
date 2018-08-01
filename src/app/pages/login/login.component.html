@@ -5,8 +5,7 @@
     </div>
 
     <dl class="login__type">
-      <dt>Entre com seu e-mail</dt>
-      <dd>
+      <ui-titled-content title="Entre com seu e-mail">
         <ul class="login__fields">
           <li>
             <ui-text-field
@@ -33,12 +32,11 @@
             >Entrar</ui-button>
           </li>
         </ul>
-      </dd>
+      </ui-titled-content>
     </dl>
 
     <dl class="login__type">
-      <dt>Ou com uma rede social</dt>
-      <dd>
+      <ui-titled-content title="Ou com uma rede social">
         <ul class="login__buttons">
           <li>
             <ui-button
@@ -49,12 +47,12 @@
             >Google</ui-button>
           </li>
         </ul>
-      </dd>
+      </ui-titled-content>
     </dl>
 
     <div class="login__create">
       <ui-link
-        routerLink="create-user"
+        routerLink="/register"
         [strong]="true"
       >Não tem uma conta? Crie uma agora!</ui-link>
     </div>
