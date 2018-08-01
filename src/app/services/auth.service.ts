@@ -38,7 +38,10 @@ export class AuthService {
    * @returns { Promise<firebase.auth.UserCredential> }
    */
   public signIn(email: string, password: string): Promise<firebase.auth.UserCredential> {
-    return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
+    /** Stores the login on Firebase Auth Session */
+    return this.angularFireAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(
+      () => this.angularFireAuth.auth.signInWithEmailAndPassword(email, password),
+    )
   }
 
   /**

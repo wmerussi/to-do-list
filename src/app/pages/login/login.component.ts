@@ -4,6 +4,12 @@ import { Router } from '@angular/router'
 import { AuthService } from '../../services/auth.service'
 import { UniqueNumberService } from '../../services/unique-number.service'
 
+const firebaseError = [
+  'auth/wrong-password',
+  'auth/invalid-email',
+  'auth/user-not-found',
+]
+
 @Component({
   selector: 'page-login',
   templateUrl: './login.component.html',
@@ -20,23 +26,32 @@ export class LoginComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private router: Router,
-    private uniqueNumberService: UniqueNumberService,
+    private uniqueNumber: UniqueNumberService,
   ) { }
 
   ngOnInit() {
     /** Get an unique number to make an unique ID for email text field */
-    this.uniqueNumberService.get()
+    this.uniqueNumber.get()
       .subscribe(number => this.emailFieldId = `text-field-${number}`)
 
     /** Get an unique number to make an unique ID for password text field */
-    this.uniqueNumberService.get()
+    this.uniqueNumber.get()
       .subscribe(number => this.passwordFieldId = `text-field-${number}`)
   }
 
   public emailSignIn() {
     this.auth.signIn(this.email, this.password).then(
-      () => this.router.navigateByUrl('/'),
-      error => console.log('error', error),
+      () => { }, // app.component will listen and redirect to home page
+      (error) => {
+        /** Check if e-mail is registered or it has a valid e-mail/password */
+        if (firebaseError.includes(error.code)) {
+          console.log('invalid e-mail or password')
+          return
+        }
+
+        /** Informs an unknown error */
+        console.log('unknown error')
+      },
     )
   }
 

@@ -19,7 +19,7 @@ export class TextFieldComponent extends Field {
   @ViewChild('inputField')
   private inputField: ElementRef
 
-  /** Method to remove 'is-focused' class off the component when input is out of focus */
+  /** Method to removeLocalStorage 'is-focused' class off the component when input is out of focus */
   public onBlur() {
     this.focus = false
   }
