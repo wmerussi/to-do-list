@@ -1,0 +1,39 @@
+@import "../../styles/tokens/-tokens";
+
+$message-types: (
+  success: (
+    color: palette(text, 08),
+    background-color: palette(ui, 07),
+    border-color: palette(ui, 06),
+  ),
+  info: (
+    color: palette(text, 09),
+    background-color: palette(ui, 09),
+    border-color: palette(ui, 08),
+  ),
+  warning: (
+    color: palette(text, 10),
+    background-color: palette(ui, 11),
+    border-color: palette(ui, 10),
+  ),
+  danger: (
+    color: palette(text, 11),
+    background-color: palette(ui, 12),
+    border-color: palette(ui, 13),
+  ),
+);
+
+.message{
+  @extend %border-radius--base;
+  @extend %shadow--low;
+
+  padding: space(xsmall);
+
+  @each $type, $colors in $message-types {
+    &--#{$type} {
+      color: map-get($colors, color);
+      background-color: map-get($colors, background-color);
+      border: 1px solid map-get($colors, border-color);
+    }
+  }
+}

@@ -25,11 +25,19 @@ $brand: (
 /// - Shadows
 ///
 $ui: (
-  01: transparent,       // Transparent background color
-  02: support-color(07), // Dark background
-  03: support-color(08), // Darker background
-  04: support-color(04), // Black background
-  05: support-color(06), // Light background
+  01: transparent,          // Transparent background color
+  02: support-color(07),    // Dark background
+  03: support-color(08),    // Darker background
+  04: support-color(04),    // Black background
+  05: support-color(06),    // Light background
+  06: additional-color(02), // Light Success
+  07: additional-color(03), // Pale Success
+  08: additional-color(05), // Light Info
+  09: additional-color(06), // Pale Info
+  10: additional-color(08), // Light Warning
+  11: additional-color(09), // Pale Warning
+  12: additional-color(11), // Light Danger
+  13: additional-color(12), // Pale Danger
 ) !default;
 
 /// Text palette colors
@@ -47,6 +55,10 @@ $text: (
   05: support-color(06), // Light text
   06: support-color(07), // Dark text
   07: support-color(06), // Links
+  08: support-color(01), // Success
+  09: support-color(04), // Info
+  10: support-color(07), // Warning
+  11: support-color(10), // Danger
 ) !default;
 
 /// Field palette colors

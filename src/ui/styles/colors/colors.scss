@@ -11,16 +11,26 @@
 /// or it will try to find the color on the default variable.
 ///
 $base-colors: (
+  beige: #FAEBCC,
   black: (
     base:  #444,
     light: #999,
     pure : #000,
   ),
   blue: (
-    light: #0000EE,
-    base:  #2A6DFF,
-    dark:  #23496B,
-    pale:  #225EAB,
+    base:  #31708F,
+    light: #BCE8F1,
+    pale:  #D9EDF7,
+  ),
+  brands: (
+    facebook: #3B5998,
+    gmail:    #FF4343,
+  ),
+  brown: #8A6D3B,
+  green: (
+    base:  #3C763D,
+    light: #D6E9C6,
+    pale:  #DFF0D8,
   ),
   grey: (
     base:  #EFEFEF,
@@ -28,12 +38,15 @@ $base-colors: (
     light: #CBCBCB,
   ),
   ice:    #CFE4FF,
-  red:    #EB1B2C,
-  brands: (
-    facebook: #3B5998,
-    gmail:    #FF4343,
+  pink:  (
+    light: #F2DEDE,
+    pale:  #EBCCD1,
+  ),
+  red: (
+    pale: #A94442,
   ),
   white:  #FFFFFF,
+  yellow: #FCF8E3,
 ) !default;
 
 /// Get color from $base-color map
@@ -77,7 +90,18 @@ $support-colors: (
 /// Additional colors
 ///
 $additional-colors: (
-  01: hsla-color(color(red)),
+  01: hsla-color(color(green, base)),
+  02: hsla-color(color(green, light)),
+  03: hsla-color(color(green, pale)),
+  04: hsla-color(color(blue, base)),
+  05: hsla-color(color(blue, light)),
+  06: hsla-color(color(blue, pale)),
+  07: hsla-color(color(brown)),
+  08: hsla-color(color(beige)),
+  09: hsla-color(color(yellow)),
+  10: hsla-color(color(red, pale)),
+  11: hsla-color(color(pink, light)),
+  12: hsla-color(color(pink, pale)),
 ) !default;
 
 /// Get color from $additional-colors map
