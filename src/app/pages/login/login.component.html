@@ -1,0 +1,62 @@
+<div class="login">
+  <div class="login__content">
+    <div class="login__logo">
+      <img src="../../../assets/imgs/logo.svg" alt="" width="200">
+    </div>
+
+    <dl class="login__type">
+      <dt>Entre com seu e-mail</dt>
+      <dd>
+        <ul class="login__fields">
+          <li>
+            <ui-text-field
+              title="E-mail"
+              [fieldId]="emailFieldId"
+              (onValueChange)="email = $event"
+            ></ui-text-field>
+          </li>
+
+          <li>
+            <ui-text-field
+              title="Senha"
+              type="password"
+              [fieldId]="passwordFieldId"
+              (onValueChange)="password = $event"
+            ></ui-text-field>
+          </li>
+
+          <li>
+            <ui-button
+              type="contained"
+              [block]="true"
+              (click)="emailSignIn()"
+            >Entrar</ui-button>
+          </li>
+        </ul>
+      </dd>
+    </dl>
+
+    <dl class="login__type">
+      <dt>Ou com uma rede social</dt>
+      <dd>
+        <ul class="login__buttons">
+          <li>
+            <ui-button
+              class="button--gmail"
+              type="contained"
+              [block]="true"
+              (click)="socialSignIn('google')"
+            >Google</ui-button>
+          </li>
+        </ul>
+      </dd>
+    </dl>
+
+    <div class="login__create">
+      <ui-link
+        routerLink="create-user"
+        [strong]="true"
+      >Não tem uma conta? Crie uma agora!</ui-link>
+    </div>
+  </div>
+</div>
