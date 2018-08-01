@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 
 import { AuthService } from './services/auth.service'
@@ -10,17 +10,17 @@ import { AuthService } from './services/auth.service'
   providers: [AuthService],
 })
 export class AppComponent implements OnInit {
-  constructor(private auth: AuthService, private route: Router) { }
+  constructor(private auth: AuthService, private cd: ChangeDetectorRef, private route: Router) { }
 
   ngOnInit() {
     /** Listen to Auth State and go to the proper page when logged in or out */
     this.auth.authState().subscribe((userIsLoggedIn) => {
       if (userIsLoggedIn) {
-        this.route.navigateByUrl('/')
+        this.route.navigateByUrl('/').then(() => this.cd.detectChanges())
         return
       }
 
-      this.route.navigateByUrl('/login')
+      this.route.navigateByUrl('/login').then(() => this.cd.detectChanges())
     })
   }
 }
