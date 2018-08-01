@@ -55,10 +55,10 @@ $text: (
   05: support-color(06), // Light text
   06: support-color(07), // Dark text
   07: support-color(06), // Links
-  08: support-color(01), // Success
-  09: support-color(04), // Info
-  10: support-color(07), // Warning
-  11: support-color(10), // Danger
+  08: additional-color(01), // Success
+  09: additional-color(04), // Info
+  10: additional-color(07), // Warning
+  11: additional-color(10), // Danger
 ) !default;
 
 /// Field palette colors

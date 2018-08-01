@@ -33,7 +33,7 @@ $message-types: (
     &--#{$type} {
       color: map-get($colors, color);
       background-color: map-get($colors, background-color);
-      border: 1px solid map-get($colors, border-color);
+      border: 2px solid map-get($colors, border-color);
     }
   }
 }
