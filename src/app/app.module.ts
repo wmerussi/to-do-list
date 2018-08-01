@@ -18,6 +18,7 @@ import { ErrorPagesModule } from './pages/error-pages/error-pages.module'
 import { HomeComponent } from './pages/home/home.component'
 import { LoginComponent } from './pages/login/login.component'
 import { RegisterComponent } from './pages/register/register.component'
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component'
 
 /** Variables */
 import { firebaseConfig } from './environments/firebase.config'
@@ -28,6 +29,7 @@ import { firebaseConfig } from './environments/firebase.config'
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),

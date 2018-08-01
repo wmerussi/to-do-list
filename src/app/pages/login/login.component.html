@@ -31,6 +31,13 @@
           >Entrar</ui-button>
         </li>
 
+        <li class="login__fields--link">
+          <ui-link
+            routerLink="/reset-password"
+            [strong]="true"
+          >Esqueceu a senha?</ui-link>
+        </li>
+
         <li *ngIf="!!message">
           <ui-message [message]="message">Mensagem de teste</ui-message>
         </li>

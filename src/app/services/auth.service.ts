@@ -32,6 +32,15 @@ export class AuthService {
   }
 
   /**
+   * Send the user a reset e-mail
+   * @param { string } email
+   * @returns { Promise<any> }
+   */
+  public resetPassword(email: string): Promise<void> {
+    return this.angularFireAuth.auth.sendPasswordResetEmail(email)
+  }
+
+  /**
    * Sign in using e-mail and password
    * @param { string } email
    * @param { string } password
