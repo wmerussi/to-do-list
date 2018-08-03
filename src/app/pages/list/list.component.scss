@@ -1,0 +1,55 @@
+@import "../../../ui/styles/tools/mixins/position";
+@import "../../../ui/styles/tokens/-tokens";
+
+.list {
+  @extend %shadow--low;
+
+  margin: space(base) auto 0;
+  padding: space(base);
+  max-width: 300px;
+
+  &__tasks,
+  &__buttons {
+    margin-top: space(base);
+  }
+
+  &__task {
+    position: relative;
+
+    + .list__task {
+      margin-top: space(xsmall);
+    }
+  }
+
+  &__delete {
+    @include position(vertical, (right: space(small)));
+
+    width: 15px;
+    height: 15px;
+
+    &:before,
+    &:after {
+      @include position(vertical);
+
+      display: block;
+      width: 15px;
+      height: 1px;
+      background-color: palette(ui, 02);
+      content: "";
+    }
+
+    &:before  {
+      transform: rotate(45deg);
+    }
+
+    &:after  {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__button {
+    + .list__button {
+      margin-top: space(xsmall);
+    }
+  }
+}

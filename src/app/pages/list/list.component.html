@@ -1,8 +1,58 @@
-<app-base-layout button="go-home">
+<app-base-layout>
   <ui-link
     extra-header-button
     linkType="button"
     type="contained"
     routerLink="/"
   >Ver todas as listas</ui-link>
+
+  <div class="list">
+    <ui-titled-content color="dark" title="Nova lista">
+      <ui-text-field
+        fieldId="group-title-id"
+        title="Nome da lista"
+        [value]="group.title"
+        (onValueChange)="group.title = $event"
+      ></ui-text-field>
+    </ui-titled-content>
+
+    <div class="list__tasks">
+      <ui-titled-content color="dark" title="Tarefas">
+        <ul>
+          <li class="list__task" *ngFor="let task of group.tasks; let i = index">
+            <ui-text-field
+              fieldId="task-{{ i }}"
+              title="Nome da tarefa"
+              [value]="task.description"
+              (onValueChange)="changeDescription($event, i)"
+            ></ui-text-field>
+
+            <button
+              class="list__delete"
+              (click)="remove(i)"
+              aria-label="Excluir tarefa"
+            ></button>
+          </li>
+        </ul>
+      </ui-titled-content>
+    </div>
+
+    <ul class="list__buttons">
+      <li class="list__button">
+        <ui-button
+          type="outlined"
+          [block]="true"
+          (click)="addTask()"
+        >Adicionar tarefa</ui-button>
+      </li>
+
+      <li class="list__button">
+        <ui-button
+          type="contained"
+          [block]="true"
+          (click)="save()"
+        >Salvar</ui-button>
+      </li>
+    </ul>
+  </div>
 </app-base-layout>

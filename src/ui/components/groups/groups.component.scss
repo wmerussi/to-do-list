@@ -5,7 +5,7 @@
 .groups {
   display: flex;
 
-  padding: space(base);
+  padding: space(xsmall);
 
   &__column {
     flex: 1 0 0;
@@ -19,7 +19,7 @@
 .group {
   @extend %shadow--medium;
 
-  padding: space(small);
+  padding: space(xsmall);
 
   + .group {
     margin-top: space(base);
@@ -71,6 +71,12 @@
 
   &__buttons {
     margin-top: space(base);
+
+    .group__button {
+      + .group__button {
+        margin-top: space(xsmall);
+      }
+    }
   }
 }
 

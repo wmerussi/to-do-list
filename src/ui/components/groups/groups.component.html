@@ -20,7 +20,25 @@
         </ul>
 
         <div class="group__buttons">
-          <ui-button size="slim" [block]="true" (click)="edit(group.title)">Editar</ui-button>
+          <ul>
+            <li class="group__button">
+              <ui-button
+                size="slim"
+                type="contained"
+                [block]="true"
+                (click)="edit(group.title)"
+              >Editar</ui-button>
+            </li>
+
+            <li class="group__button">
+              <ui-button
+                size="slim"
+                type="outlined"
+                [block]="true"
+                (click)="delete(group)"
+              >Excluir</ui-button>
+            </li>
+          </ul>
         </div>
       </ui-titled-content>
     </div>

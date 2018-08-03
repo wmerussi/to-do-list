@@ -56,6 +56,18 @@ export class GroupsComponent implements OnInit {
   }
 
   /**
+   * Delete a list
+   * @param { string } groupTitle
+   */
+  public delete(group: Group) {
+    this.service.delete(group.title).subscribe(() => {
+      /** Remove deleted group from groups to update view */
+      const groupsUpdated = lodash.remove(this.groups, obj => obj !== group)
+      this.groups = groupsUpdated
+    })
+  }
+
+  /**
    * Go to List Page and edit list
    * @param { string } groupTitle
    */
