@@ -12,6 +12,7 @@
     &:active,
     &:visited {
       color: palette(text, 07);
+      text-decoration: underline;
     }
   }
 
