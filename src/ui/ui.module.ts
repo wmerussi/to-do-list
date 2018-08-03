@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { ButtonComponent } from './components/button/button.component'
 import { LinkComponent } from './components/link/link.component'
 import { MessageComponent } from './components/message/message.component'
+import { GroupsComponent } from './components/groups/groups.component'
 import { TextFieldComponent } from './components/form/text-field/text-field.component'
 import { TitledContentComponent } from './components/titled-content/titled-content.component'
 
@@ -19,6 +20,7 @@ import { FloatingCenteredContentComponent }
     FloatingCenteredContentComponent,
     LinkComponent,
     MessageComponent,
+    GroupsComponent,
     TextFieldComponent,
     TitledContentComponent,
   ],
@@ -32,6 +34,7 @@ import { FloatingCenteredContentComponent }
     FloatingCenteredContentComponent,
     LinkComponent,
     MessageComponent,
+    GroupsComponent,
     TextFieldComponent,
     TitledContentComponent,
   ],

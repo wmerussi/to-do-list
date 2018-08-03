@@ -1,0 +1,21 @@
+<div class="home">
+  <header class="home__header">
+    <h1 class="home__title">
+      <img src="../../../assets/imgs/logo.svg" alt="ToDo List logo"  height="100">
+    </h1>
+
+    <ul class="home__button-list">
+      <li>
+        <ui-link
+          linkType="button"
+          type="contained"
+          routerLink="/list"
+        >Adicionar lista</ui-link>
+      </li>
+
+      <li><ui-button type="outlined" (click)="signOut()">Sair</ui-button></li>
+    </ul>
+  </header>
+
+  <ui-groups></ui-groups>
+</div>

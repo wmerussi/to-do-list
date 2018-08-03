@@ -1,0 +1,82 @@
+@import "../../styles/tools/mixins/position";
+@import "../../styles/colors/palettes";
+@import "../../styles/tokens/-tokens";
+
+.groups {
+  display: flex;
+
+  padding: space(base);
+
+  &__column {
+    flex: 1 0 0;
+
+    + .groups__column {
+      margin-left: space(base);
+    }
+  }
+}
+
+.group {
+  @extend %shadow--medium;
+
+  padding: space(small);
+
+  + .group {
+    margin-top: space(base);
+  }
+
+  &__item {
+    + .group__item {
+      margin-top: space(xsmall);
+    }
+  }
+
+  &__checkbox {
+    @include position((right: 100%));
+
+    + label {
+      position: relative;
+      padding-left: space(medium);
+
+      &:before,
+      &:after {
+        border-radius: 2px;
+      }
+
+      &:before {
+        @include position(vertical, (left: 0));
+
+        width: 16px;
+        height: 16px;
+
+        border: 1px solid palette(field, 04);
+        content: "";
+      }
+    }
+
+    &:checked {
+      + label {
+        &:after {
+          @include position(vertical, (left: 3px));
+
+          width: 10px;
+          height: 10px;
+
+          background-color: palette(field, 02);
+          content: "";
+        }
+      }
+    }
+  }
+}
+
+.item {
+  &__description {
+    @extend %paragraph;
+
+    display: inline-block;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow: hidden;
+  }
+}

@@ -12,6 +12,7 @@ import { ButtonComponent } from '../button/button.component'
     'href',
     'iconName',
     'iconSize',
+    'linkType',
     'routerLink',
     'strong',
     'type',
@@ -22,7 +23,7 @@ export class LinkComponent extends ButtonComponent implements OnInit {
   public href: string
   public routerLink: string
   public strong: boolean
-  public type: string = 'base'
+  public linkType: string = 'base'
 
   @ViewChild('anchor')
   private anchor: ElementRef
@@ -58,12 +59,12 @@ export class LinkComponent extends ButtonComponent implements OnInit {
 
   /** Returns if is arrow type */
   public isArrow(): boolean {
-    return this.type === 'arrow'
+    return this.linkType === 'arrow'
   }
 
   /** Returns all button classes if type equals button */
   protected getButtonClasses(): Object {
-    return (this.type === 'button') && {
+    return (this.linkType === 'button') && {
       ...super.getButtonClasses(),
       'link--button': true,
     }

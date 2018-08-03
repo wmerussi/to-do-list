@@ -1,0 +1,24 @@
+<div class="groups">
+  <div class="groups_column">
+    <div class="group" *ngFor="let group of groups">
+      <ui-titled-content color="dark" title="{{ group.title }}">
+        <ul>
+          <li class="group__item" *ngFor="let task of group.tasks">
+            <input
+              class="group__checkbox"
+              id="checkbox-{{ group.title }}-{{ task.description }}"
+              type="checkbox"
+              [checked]="task.checked"
+              (change)="checkboxChange($event, group, task)"
+            >
+
+            <label
+              class="item__description"
+              for="checkbox-{{ group.title }}-{{ task.description }}"
+            >{{ task.description }}</label>
+          </li>
+        </ul>
+      </ui-titled-content>
+    </div>
+  </div>
+</div>
