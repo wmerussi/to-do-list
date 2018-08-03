@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core'
 
+import { AngularFireAuth } from 'angularfire2/auth'
+
 import { DatabaseService } from '../../../app/services/database.service'
-import { UserService } from '../../../app/services/user.service'
 
 import { Task } from './task.model'
 
@@ -9,18 +10,19 @@ import { Observable } from 'rxjs'
 
 @Injectable()
 export class GroupsService {
-  constructor(private db: DatabaseService, private user: UserService) { }
+  constructor(private angularFire: AngularFireAuth, private db: DatabaseService) { }
 
   public get(): Observable<any> {
-    return this.db.get(`/${ this.user.id }`)
+    return this.db.get(`/${ this.angularFire.auth.currentUser.uid }`)
   }
 
   public delete(groupTitle: string): Observable<any> {
-    return this.db.delete(`/${ this.user.id }/${ groupTitle }`)
+    return this.db.delete(`/${ this.angularFire.auth.currentUser.uid }/${ groupTitle }`)
   }
 
   public new(groupTitle: string, tasks: Task[]): Observable<any> {
-    return this.db.patch(`/${ this.user.id }`, { [`${ groupTitle }`]: { ...tasks } })
+    return this.db.patch(`/${ this.angularFire.auth.currentUser.uid }`,
+                         { [`${ groupTitle }`]: { ...tasks } })
   }
 
   /**
@@ -30,7 +32,8 @@ export class GroupsService {
    * @returns {Observable<any>}
    */
   public update(groupTitle: string, tasks: Task[]): Observable<any> {
-    return this.db.put(`/${ this.user.id }/${ groupTitle }`, this.castToFirebaseObj(tasks))
+    return this.db.put(`/${ this.angularFire.auth.currentUser.uid }/${ groupTitle }`,
+                       this.castToFirebaseObj(tasks))
   }
 
   /**

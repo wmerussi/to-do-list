@@ -14,12 +14,16 @@ import { appRoutingProviders, routing } from './app.routes'
 import { DatabaseService } from './services/database.service'
 
 /** Modules */
+import { ErrorPagesModule } from './pages/error-pages/error-pages.module'
 import { UiModule } from '../ui/ui.module'
 
 /** Components */
 import { AppComponent } from './app.component'
-import { ErrorPagesModule } from './pages/error-pages/error-pages.module'
+import { BaseLayoutComponent } from './components/base-layout/base-layout.component'
+
+/** Pages */
 import { HomeComponent } from './pages/home/home.component'
+import { ListComponent } from './pages/list/list.component'
 import { LoginComponent } from './pages/login/login.component'
 import { RegisterComponent } from './pages/register/register.component'
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component'
@@ -30,7 +34,9 @@ import { firebaseConfig } from './environments/firebase.config'
 @NgModule({
   declarations: [
     AppComponent,
+    BaseLayoutComponent,
     HomeComponent,
+    ListComponent,
     LoginComponent,
     RegisterComponent,
     ResetPasswordComponent,

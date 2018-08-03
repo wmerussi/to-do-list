@@ -1,0 +1,22 @@
+<div class="base-layout">
+  <header class="base-layout__header">
+    <h1 class="base-layout__title">
+      <img src="../../../assets/imgs/logo.svg" alt="ToDo List logo"  height="100">
+    </h1>
+
+    <ul class="base-layout__button-list">
+      <li class="base-layout__button">
+        <ng-content select="[extra-header-button]"></ng-content>
+      </li>
+
+      <li class="base-layout__button">
+        <ui-button
+          type="outlined"
+          (click)="signOut()"
+        >Sair</ui-button>
+      </li>
+    </ul>
+  </header>
+
+  <ng-content></ng-content>
+</div>

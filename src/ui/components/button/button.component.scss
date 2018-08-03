@@ -72,6 +72,7 @@ $social-buttons: (
 ///
 .button {
   @extend %paragraph--strong;
+  @extend %cursor--action;
 
   &:not(&--link) {
     display: flex;

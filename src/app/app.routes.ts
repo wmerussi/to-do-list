@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router'
 
 import { errorPagesRoutes } from './pages/error-pages/error-pages.routes'
 import { homeRoutes } from './pages/home/home.routes'
+import { listRoutes } from './pages/list/list.routes'
 import { loginRoutes } from './pages/login/login.routes'
 import { registerRoutes } from './pages/register/register.routes'
 import { resetPasswordRoutes } from './pages/reset-password/reset-password.routes'
@@ -12,6 +13,7 @@ import { resetPasswordRoutes } from './pages/reset-password/reset-password.route
  */
 const appRoutes: Routes = [
   ...homeRoutes,
+  ...listRoutes,
   ...loginRoutes,
   ...registerRoutes,
   ...resetPasswordRoutes,

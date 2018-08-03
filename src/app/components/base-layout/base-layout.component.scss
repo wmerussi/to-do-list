@@ -1,0 +1,25 @@
+@import "../../../ui/styles/tokens/-tokens";
+
+.base-layout {
+  &__header {
+    @extend %shadow--low;
+
+    display: flex;
+    align-items: center;
+    padding: 0 space(base);
+  }
+
+  &__title {
+    flex: 99;
+  }
+
+  &__button-list {
+    display: flex;
+  }
+
+  &__button {
+    + .base-layout__button {
+      margin-left: space(base);
+    }
+  }
+}
