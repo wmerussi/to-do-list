@@ -5,7 +5,7 @@ import * as firebase from 'firebase'
 
 @Injectable()
 export class AuthService {
-  constructor(private angularFireAuth: AngularFireAuth) { }
+  constructor(private angularFire: AngularFireAuth) { }
 
   /**
    * Register a new user
@@ -14,7 +14,7 @@ export class AuthService {
    * @returns { Promise<firebase.auth.UserCredential> }
    */
   public register(email: string, password: string): Promise<firebase.auth.UserCredential> {
-    return this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
+    return this.angularFire.auth.createUserWithEmailAndPassword(email, password)
   }
 
   /**
@@ -23,7 +23,7 @@ export class AuthService {
    * @returns { Promise<any> }
    */
   public resetPassword(email: string): Promise<void> {
-    return this.angularFireAuth.auth.sendPasswordResetEmail(email)
+    return this.angularFire.auth.sendPasswordResetEmail(email)
   }
 
   /**
@@ -34,7 +34,7 @@ export class AuthService {
    */
   public signIn(email: string, password: string): Promise<firebase.auth.UserCredential> {
     /** Stores the login on Firebase Auth Session */
-    return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
+    return this.angularFire.auth.signInWithEmailAndPassword(email, password)
   }
 
   /**
@@ -42,7 +42,7 @@ export class AuthService {
    * @returns { Promise<void> }
    */
   public signOut(): Promise<void> {
-    return this.angularFireAuth.auth.signOut()
+    return this.angularFire.auth.signOut()
   }
 
   /**
@@ -66,6 +66,10 @@ export class AuthService {
         return Promise.reject('Unknown social type')
     }
 
-    return this.angularFireAuth.auth.signInWithRedirect(provider)
+    return this.angularFire.auth.signInWithRedirect(provider)
+  }
+
+  public getSocialData(): Promise<firebase.auth.UserCredential> {
+    return this.angularFire.auth.getRedirectResult()
   }
 }
