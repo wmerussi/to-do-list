@@ -10,30 +10,35 @@ import { Observable } from 'rxjs'
 
 @Injectable()
 export class GroupsService {
+  private aaa = '2tvEQkw4ozdJphS3tbkgUauH4Lg1'
   constructor(private angularFire: AngularFireAuth, private db: DatabaseService) { }
 
-  public get(): Observable<any> {
-    return this.db.get(`/${ this.angularFire.auth.currentUser.uid }`)
+  /**
+   * Get from database
+   * It's possible to inform the especific list
+   * @param {string} list
+   * @returns {Observable<any>}
+   */
+  public get(list?: string): Observable<any> {
+    if (!!list) {
+      return this.db.get(`/${ this.aaa }/${ list }`)
+    }
+
+    return this.db.get(`/${ this.aaa }`)
   }
 
   public delete(groupTitle: string): Observable<any> {
-    return this.db.delete(`/${ this.angularFire.auth.currentUser.uid }/${ groupTitle }`)
-  }
-
-  public new(groupTitle: string, tasks: Task[]): Observable<any> {
-    return this.db.patch(`/${ this.angularFire.auth.currentUser.uid }`,
-                         { [`${ groupTitle }`]: { ...tasks } })
+    return this.db.delete(`/${ this.aaa }/${ groupTitle }`)
   }
 
   /**
    * Method to update a List Group
-   * @param {string} groupTitle
-   * @param {Task[]} tasks
-   * @returns {Observable<any>}
+   * @param { string } groupTitle
+   * @param { Task[] } tasks
+   * @returns { Observable<any> }
    */
   public update(groupTitle: string, tasks: Task[]): Observable<any> {
-    return this.db.put(`/${ this.angularFire.auth.currentUser.uid }/${ groupTitle }`,
-                       this.castToFirebaseObj(tasks))
+    return this.db.put(`/${ this.aaa }/${ groupTitle }`, this.castToFirebaseObj(tasks))
   }
 
   /**

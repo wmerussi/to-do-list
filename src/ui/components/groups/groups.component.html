@@ -18,6 +18,10 @@
             >{{ task.description }}</label>
           </li>
         </ul>
+
+        <div class="group__buttons">
+          <ui-button size="slim" [block]="true" (click)="edit(group.title)">Editar</ui-button>
+        </div>
       </ui-titled-content>
     </div>
   </div>

@@ -55,7 +55,8 @@ $button-type-config: (
 );
 
 $button-size-config: (
-  base:   (small),
+  slim: (0),
+  base: (small),
 );
 
 $button-border-radius-config: (
@@ -121,7 +122,11 @@ $social-buttons: (
     /// Subtract 1px from each padding to adjust height and width due "invisible" border size
     @each $value in $values {
       /// space function returns a rem value, so we need to get it in px
-      $subtract: map-get($space, $value) - 1;
+      $subtract: 0;
+
+      @if $value != 0 {
+        $subtract: map-get($space, $value) - 1;
+      }
       $value-adjustment: rem(append($value-adjustment, $subtract));
     }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
 
 import { GroupsService } from './groups.service'
 
@@ -16,7 +17,7 @@ import lodash from 'lodash'
 export class GroupsComponent implements OnInit {
   public groups: Group[] = []
 
-  constructor(private service: GroupsService) { }
+  constructor(private router: Router, private service: GroupsService) { }
 
   ngOnInit() {
     /** Get data from database */
@@ -51,6 +52,14 @@ export class GroupsComponent implements OnInit {
     }
 
     /** Send to database */
-    this.service.update(group.title, tasks).subscribe(() => console.log('update success'))
+    this.service.update(group.title, tasks).subscribe()
+  }
+
+  /**
+   * Go to List Page and edit list
+   * @param { string } groupTitle
+   */
+  public edit(groupTitle: string) {
+    this.router.navigate(['/list', groupTitle])
   }
 }

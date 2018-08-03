@@ -6,12 +6,21 @@ import { Field } from '../field/field'
   selector: 'ui-text-field',
   templateUrl: './text-field.component.html',
   styleUrls: ['./text-field.component.scss'],
-  inputs: ['controlName', 'fieldId', 'formGroup', 'placeholder', 'required', 'title', 'type'],
+  inputs: ['controlName',
+    'fieldId',
+    'formGroup',
+    'placeholder',
+    'required',
+    'title',
+    'type',
+    'value',
+  ],
   outputs: ['formGroupChange', 'onValueChange'],
 })
 export class TextFieldComponent extends Field {
   /** Inputs */
   public type: string = 'text'
+  public value: string
 
   /** Component variables */
   private focus: boolean
@@ -19,7 +28,9 @@ export class TextFieldComponent extends Field {
   @ViewChild('inputField')
   private inputField: ElementRef
 
-  /** Method to removeLocalStorage 'is-focused' class off the component when input is out of focus */
+  /**
+   * Method to removeLocalStorage 'is-focused' class off the component when input is out of focus
+   */
   public onBlur() {
     this.focus = false
   }
@@ -58,6 +69,6 @@ export class TextFieldComponent extends Field {
    * @return { boolean }
    */
   protected moveLabelUp(): boolean {
-    return this.hasValue() || this.focus || !!this.placeholder
+    return !!this.value || this.hasValue() || this.focus || !!this.placeholder
   }
 }
