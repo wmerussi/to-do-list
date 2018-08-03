@@ -1,6 +1,6 @@
 <dl class="titled-content">
-  <dt>{{ title }}</dt>
-  <dd>
+  <dt class="titled-content__title" [ngClass]="getTitleClasses()">{{ title }}</dt>
+  <dd class="titled-content__content">
     <ng-content></ng-content>
   </dd>
 </dl>

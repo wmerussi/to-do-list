@@ -2,14 +2,13 @@
 @import "../../styles/tokens/-tokens";
 
 .titled-content {
-  dt {
+  &__title {
     @extend %heading--xsmall;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    color: palette(text, 05);
     text-transform: uppercase;
     text-align: center;
 
@@ -17,8 +16,8 @@
     &:after {
       flex: 1 1 0;
       display: block;
+      min-width: space(small);
       height: 1px;
-      background-color: palette(text, 05);
       content: "";
     }
 
@@ -29,9 +28,27 @@
     &:after {
       margin-left: space(small);
     }
+
+    &--light {
+      color: palette(text, 05);
+
+      &:before,
+      &:after {
+        background-color: palette(text, 05);
+      }
+    }
+
+    &--dark {
+      color: palette(text, 06);
+
+      &:before,
+      &:after {
+        background-color: palette(text, 06);
+      }
+    }
   }
 
-  dd {
+  &__content {
     margin-top: space(xsmall);
   }
 }
