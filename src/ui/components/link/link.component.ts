@@ -8,10 +8,7 @@ import { ButtonComponent } from '../button/button.component'
   styleUrls: ['./link.component.scss'],
   inputs: [
     'disabled',
-    'hideIcon',
     'href',
-    'iconName',
-    'iconSize',
     'linkType',
     'routerLink',
     'strong',
@@ -55,11 +52,6 @@ export class LinkComponent extends ButtonComponent implements OnInit {
       [`link--${ this.type }`]: !!this.type,
       [`link--strong`]: this.strong,
     }
-  }
-
-  /** Returns if is arrow type */
-  public isArrow(): boolean {
-    return this.linkType === 'arrow'
   }
 
   /** Returns all button classes if type equals button */

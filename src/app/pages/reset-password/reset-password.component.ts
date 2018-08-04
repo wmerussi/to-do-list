@@ -10,7 +10,7 @@ const firebaseError = {
 }
 
 @Component({
-  selector: 'app-reset-password',
+  selector: 'page-reset-password',
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.scss'],
   providers: [AuthService, UniqueNumberService],

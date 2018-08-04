@@ -13,7 +13,7 @@ const firebaseError = {
 }
 
 @Component({
-  selector: 'app-register',
+  selector: 'page-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
   providers: [AuthService, UniqueNumberService],

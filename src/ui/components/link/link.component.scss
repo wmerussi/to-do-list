@@ -16,25 +16,6 @@
     }
   }
 
-  &__arrow {
-    //@extend .icon;
-    //@extend .icon--angle-right;
-    //@extend .icon--small;
-
-    margin-left: space(base);
-  }
-
-  &__icon {
-    //@extend .icon;
-
-    margin-right: space(small);
-  }
-
-  &--arrow,
-  &--small {
-    //@extend %caption;
-  }
-
   &--base {
     @extend %paragraph;
 
